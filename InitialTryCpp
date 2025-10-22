@@ -1,0 +1,50 @@
+/*
+Initial test of code
+
+Runtime 2 ms
+Beats 12.99%
+
+Memory 11.11 MB
+Beats 100.00%
+
+While memory is incredible, I think favoring speed at the expense of memory is probably the best thing to do moving forward with revisions
+*/
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        int minlen=0;
+        int strNum=0;
+        int count=0;
+        char testStr = ' ';
+        bool testPre = true;
+        string output = "";
+        minlen = strs[0].length();
+        if(0 < strs.size()){
+            /*
+            while (strNum < strs.size()){
+                if(minlen > strs[strNum].length()) minlen = strs[strNum].length();
+                strNum++;
+            }
+            */
+            strNum=1;
+            while (count < minlen){
+                strNum=0;
+                testStr = strs[0][count];
+                cout << testStr << "\n";
+                while(strNum < strs.size()){
+                    if(testStr != strs[strNum][count]){
+                        testPre = false;
+                        break;
+                    }
+                    strNum++;
+                }
+                if(testPre == true){
+                    output += strs[0][count];
+                }
+                else break;
+                count ++;
+            }
+        }
+        return output;
+    }
+};
