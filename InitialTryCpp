@@ -12,6 +12,7 @@ While memory is incredible, I think favoring speed at the expense of memory is p
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
+        //initialization of variables and declarations
         int minlen=0;
         int strNum=0;
         int count=0;
@@ -19,18 +20,15 @@ public:
         bool testPre = true;
         string output = "";
         minlen = strs[0].length();
+        //if statement to run only if there are variables in size
         if(0 < strs.size()){
-            /*
-            while (strNum < strs.size()){
-                if(minlen > strs[strNum].length()) minlen = strs[strNum].length();
-                strNum++;
-            }
-            */
             strNum=1;
+            //to loop through all of the shortest lengths of the strings
             while (count < minlen){
                 strNum=0;
                 testStr = strs[0][count];
                 cout << testStr << "\n";
+                //looping through each of the strings, comparing Char
                 while(strNum < strs.size()){
                     if(testStr != strs[strNum][count]){
                         testPre = false;
@@ -38,6 +36,7 @@ public:
                     }
                     strNum++;
                 }
+                //if there is a comparible character add char
                 if(testPre == true){
                     output += strs[0][count];
                 }
